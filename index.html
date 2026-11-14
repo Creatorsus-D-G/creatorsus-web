@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creatorsus Labs - Indie Studio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);
+            color: #c9d1d9;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        header {
+            text-align: center;
+            padding: 3rem 0;
+            border-bottom: 2px solid #30363d;
+            margin-bottom: 3rem;
+        }
+        .logo {
+            font-size: 3rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #58a6ff 0%, #a371f7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+        .tagline {
+            font-size: 1.2rem;
+            color: #8b949e;
+            margin-bottom: 1rem;
+        }
+        .creator {
+            color: #58a6ff;
+            font-weight: 600;
+        }
+        .about {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+        .about h2 {
+            color: #58a6ff;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+        .divisions {
+            margin-bottom: 3rem;
+        }
+        .divisions h2 {
+            color: #58a6ff;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            text-align: center;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        .card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-3px);
+            border-color: #58a6ff;
+        }
+        .card h3 {
+            color: #a371f7;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+        .card .subtitle {
+            color: #8b949e;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+        .card p {
+            color: #c9d1d9;
+        }
+        .projects {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+        .projects h2 {
+            color: #58a6ff;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+        .project-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #238636 0%, #2ea043 100%);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: transform 0.2s;
+        }
+        .project-link:hover {
+            transform: scale(1.05);
+        }
+        .discord {
+            background: linear-gradient(135deg, #5865F2 0%, #4752C4 100%);
+            border: 2px solid #5865F2;
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .discord h2 {
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+        .discord p {
+            color: #e0e0ff;
+            margin-bottom: 1.5rem;
+        }
+        .discord-btn {
+            display: inline-block;
+            background: white;
+            color: #5865F2;
+            padding: 1rem 2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: transform 0.2s;
+        }
+        .discord-btn:hover {
+            transform: scale(1.05);
+        }
+        .contact {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        .contact h2 {
+            color: #58a6ff;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            align-items: center;
+            margin-top: 1.5rem;
+        }
+        .contact-item strong {
+            display: block;
+            color: #a371f7;
+            margin-bottom: 0.3rem;
+        }
+        .contact-item a {
+            color: #58a6ff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.2s;
+        }
+        .contact-item a:hover {
+            color: #79c0ff;
+            text-decoration: underline;
+        }
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid #30363d;
+            color: #8b949e;
+        }
+        footer a {
+            color: #58a6ff;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2rem;
+            }
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">🎮 CREATORSUS LABS</div>
+            <p class="tagline">Un estudio indie creado por <span class="creator">@leonelb2840-design</span></p>
+            <p style="color: #8b949e; font-size: 1.1rem;">Creadores de contenido para creadores de contenido</p>
+        </header>
+        <section class="about">
+            <h2>📌 Sobre Nosotros</h2>
+            <p>
+                <strong>Creatorsus Labs</strong> es un estudio independiente multidisciplinario dedicado a proporcionar 
+                herramientas, recursos y contenido de calidad para la comunidad de creadores. Nuestro objetivo es 
+                empoderar a otros creadores con todo lo necesario para llevar sus proyectos al siguiente nivel.
+            </p>
+        </section>
+        <section class="divisions">
+            <h2>🏢 Nuestras Divisiones</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>💻 Creatorsus D&G</h3>
+                    <p class="subtitle">Development - Gaming</p>
+                    <p>Desarrollo de videojuegos, mods, herramientas y contenido gaming interactivo para la comunidad.</p>
+                </div>
+                <div class="card">
+                    <h3>🎨 Creatorsus RASM</h3>
+                    <p class="subtitle">Resources, Art, Stuff & More</p>
+                    <p>Recursos gráficos, arte digital, assets y material creativo para potenciar tus proyectos.</p>
+                </div>
+                <div class="card">
+                    <h3>🎵 Creatorsus Beats Records</h3>
+                    <p class="subtitle">Sello Discográfico</p>
+                    <p>Producción musical, beats originales y soporte para artistas emergentes de la comunidad.</p>
+                </div>
+
+                <div class="card">
+                    <h3>🎬 Creatorsus Cinema Studios</h3>
+                    <p class="subtitle">Producción Audiovisual</p>
+                    <p>Doblajes, fandubs, cortometrajes, series y contenido cinematográfico creado por y para fans.</p>
+                </div>
+
+                <div class="card">
+                    <h3>🎪 Creatorsus Events</h3>
+                    <p class="subtitle">Eventos y Comunidades</p>
+                    <p>Organización de eventos, torneos, colaboraciones y actividades para unir a la comunidad.</p>
+                </div>
+
+                <div class="card" style="border-style: dashed; opacity: 0.7;">
+                    <h3>🚀 Más Divisiones</h3>
+                    <p class="subtitle">Próximamente</p>
+                    <p>Estamos trabajando en expandir nuestras áreas para ofrecerte aún más servicios y contenido.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="projects">
+            <h2>🌟 Proyecto Destacado</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 1rem;">
+                Somos los responsables y desarrolladores del proyecto <strong>Among Creators Pack</strong>, 
+                una colección de contenido y recursos para la comunidad.
+            </p>
+            <a href="https://leonelb2840-design.github.io/among-creators-pack/" class="project-link" target="_blank">
+                🔗 Visitar Among Creators Pack
+            </a>
+        </section>
+
+        <section class="discord">
+            <h2>💬 Únete a Nuestra Comunidad</h2>
+            <p>Conecta con nosotros, únete a las conversaciones y sé parte del crecimiento de Creatorsus Labs</p>
+            <a href="https://discord.gg/s24PZyMBmA" class="discord-btn" target="_blank">
+                <svg style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+                </svg>
+                Unirse al Discord
+            </a>
+        </section>
+        <section class="contact">
+            <h2>📧 Contacto</h2>
+            <p>¿Tienes alguna propuesta, duda o quieres colaborar con nosotros? ¡Escríbenos!</p>
+            <div class="contact-links">
+                <div class="contact-item">
+                    <strong>Correo Principal</strong>
+                    <a href="mailto:creatorsuslabs@proton.me">creatorsuslabs@proton.me</a>
+                </div>
+                <div class="contact-item">
+                    <strong>Correo Secundario (consultas generales)</strong>
+                    <a href="mailto:creatorsuslabs@gmail.com">creatorsuslabs@gmail.com</a>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>© 2026 Creatorsus Labs | Creado con ❤️ por <a href="https://github.com/leonelb2840-design">@leonelb2840-design</a></p>
+            <p style="margin-top: 0.5rem;">Software Libre y Código Abierto 🐧</p>
+        </footer>
+    </div>
+</body>
+  </html>
